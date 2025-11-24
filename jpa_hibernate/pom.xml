@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.techcamps.cadastros</groupId>
+  <artifactId>administrativo-api</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Projeto Admin Demo</name>
+  <description>Projeto Administrativo para cadastros de Clientes e Produtos usando Hibernate e JPA</description>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- Hibernate -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.4.12.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>5.4.12.Final</version>
+    </dependency>
+
+    <!-- SQLite JDBC -->
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.36.0.3</version>
+    </dependency>
+
+    <!-- SQLite Dialect (Hibernate) -->
+    <dependency>
+      <groupId>com.github.gwenn</groupId>
+      <artifactId>sqlite-dialect</artifactId>
+      <version>0.1.2</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Compiler plugin (usa as properties acima) -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Exec plugin para rodar a classe demo.AdministrativoApp -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>demo.AdministrativoApp</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
